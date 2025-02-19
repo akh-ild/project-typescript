@@ -1,9 +1,16 @@
 let greetings: string = 'Hello world';
 
-let num: number = 123;
-greetings.toUpperCase();
-
 console.log(greetings);
-console.log(num);
+
+let userId: number = 10;
+let isLoggedIn: boolean = false;
+
+// any - bad practice
+let hero: string; // let hero;
+
+function getHero() {
+  return 'spiderman';
+}
+hero = getHero();
 
 export {};
