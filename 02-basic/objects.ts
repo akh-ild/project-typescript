@@ -5,16 +5,40 @@
 // createUser(newUser);
 
 type User = {
+  readonly _id: string,
   name: string,
   email: string,
   isActive: boolean,
+  creditCard?: number, // optional
 };
 
-function createUser(user: User): User {
-  return {name: '', email: '', isActive: true}
+type cardNumber = {
+  cardNumber: number,
+};
+type cardDate = {
+  cardDate: string,
 }
+type cardDetails = cardNumber & cardDate & {
+  cvv: number,
+};
 
-createUser({ name: 'Ildar', email: 'Ildar@', isActive: true });
+// function createUser(user: User): User {
+//   return {name: '', email: '', isActive: true}
+// }
+
+// createUser({ name: 'Ildar', email: 'Ildar@', isActive: true });
+
+let myUser: User = {
+  _id: '123',
+  name: 'Ildar',
+  email: 'Ildar@',
+  isActive: true,
+};
+
+myUser.email = 'Ildar@.com';
+// myUser._id = '12345'; // error
+
+
 
 type Point = {
   x: number,
