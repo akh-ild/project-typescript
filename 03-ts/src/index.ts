@@ -1,7 +1,8 @@
 class User {
   email: string
   name: string
-  private _courseCount = 1
+  // private _courseCount = 1 // access only in class
+  protected _courseCount = 1
   private readonly city: string = "Bishkek"
   constructor(email: string, name: string) {
     this.email = email;
@@ -13,11 +14,18 @@ class User {
   get courseCount(): number {
     return this._courseCount;
   }
-  set courseCount(courseNum):voidw { // setter cannot have return type
+  set courseCount(courseNum) { // setter cannot have return type
     if (courseNum <= 1) {
       throw new Error('Course count should be more than 1');
     }
     this._courseCount = courseNum;
+  }
+}
+
+class SubUser extends User {
+  isFamily: boolean = true
+  changeCourseCount () {
+    this._courseCount = 4
   }
 }
 
